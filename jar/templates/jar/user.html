@@ -1,0 +1,71 @@
+{% load static %}
+{% load jar_extras %}
+<link rel="stylesheet" type="text/css" href="{% static 'jar/user_style.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,800;0,900;1,200;1,300;1,400;1,800;1,900&display=swap" rel="stylesheet">
+
+<div class = "container-fluid user">
+    <div class = "usercontainer">
+        <div class = "userprofile">
+            <i class = "home"> <a href = "{% url 'index' %}"> HOME </a> </i>
+            <h1> {{user.name|upper}} </h1>
+            <img class = "profile" src = {{user.photo_url}} />
+            <p> Joined:  {{user.date_joined}}</p>
+
+            <h4> JARS: </h4>
+            <ul class = "jarlist">
+                {% for jar in user.jar_set.all %}
+                     <li> <a href= "{% url 'user_jar' user.id jar.id %}" > {{jar.name}} - {{jar.current_balance|format_dollar}} </a> </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class = "jar_logs">
+            {% if jar %}
+                <h1> {{jar.name | upper }}</h1>
+                <p> {{jar.description}} </p>
+                <p> Balance: {{ jar.current_balance | format_dollar }}</p>
+                <div class = "tablecontainer">
+                    <table class = "table table-bordered">
+                        <tr>
+                            <th>
+                                Offense
+                            </th>
+                            <th>
+                                Amount
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Submitter
+                            </th>
+                        </tr>
+                    {% for log in jar.sorted_log %}
+                        <tr>
+                            <td>
+                                {{log.content}}
+                            </td>
+                            <td>
+                                {{log.penalty}}
+                            </td>
+                            <td>
+                                {{log.date_created}}
+                            </td>
+                            <td>
+                                {{log.submitter}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </table>
+                </div>
+
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>

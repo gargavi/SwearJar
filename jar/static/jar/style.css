@@ -1,0 +1,145 @@
+.intro {
+    background-color: #f6f6f6;
+    min-height: 100%;
+    padding: 0%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.usercolumn {
+    align-items: center;
+    text-align: center;
+    width: 60vw;
+}
+
+.user_set {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    align-self: center;
+    padding: 2%;
+    font-weight: 800 !important;
+}
+.user {
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: 2%;
+}
+
+.user a {
+    color: black;
+}
+
+.user a:hover {
+    color: #c70000;
+    text-decoration: None;
+    transform: scale(1.1);
+}
+
+.user img {
+    width: max(13vw, 20vh);
+    padding: 3%;
+    height: max(13vw, 20vh);
+}
+
+.user .profile {
+    color: black;
+    display: block;
+    font-weight: 400;
+    font-style:italic;
+    transition: all .1s ease-in-out;
+}
+
+.user .profile:hover {
+    transform: scale(1.02);
+}
+
+.user .profile:hover {
+    color: #c70000;
+    text-decoration: none;
+}
+
+.user .jarlist {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    align-text: center;
+}
+
+.user .jarlist a {
+    display: block;
+    color: black;
+    transition: all .1s ease-in-out;
+    text-decoration: underline;
+}
+
+.user .jarlist a:hover {
+    transform: scale(1.1);
+    color: black;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.formsection h1 {
+    color: #c70000;
+}
+
+.formsection {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40vw;
+}
+
+.table {
+    text-align: center;
+    font-size: 20px;
+}
+
+.table ul {
+    list-style: none;
+}
+.table li {
+    color: red;
+}
+
+.formsection .submit {
+    padding: 2%;
+    background-color: #c70000;
+    border-radius: 20%;
+    color: white;
+    border-color: black;
+}
+
+.formsection .submit:hover {
+    background-color: white;
+    color: #c70000;
+}
+
+.flex_container {
+    display: flex;
+}
+
+@media screen and (max-width: 990px) {
+    .flex_container {flex-wrap: wrap;}
+    .usercolumn {width: 100vw;}
+    .formsection{width: 100vw;}
+}
+@media screen and (max-width: 990px) {
+    .jarlist li{
+        font-size: 30px;
+    }
+    .table, .formsection .submit {
+        font-size: 30px;
+    }
+}
+
